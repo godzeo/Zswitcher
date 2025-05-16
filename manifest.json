@@ -5,8 +5,7 @@
   "description": "A simple and secure proxy switcher for Chrome. Easily configure and switch between proxy servers with a clean interface.",
   "permissions": [
     "proxy",
-    "storage",
-    "tabs"
+    "storage"
   ],
   "host_permissions": [
     "<all_urls>"
