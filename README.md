@@ -3,6 +3,8 @@
 
 A simple and secure Chrome extension for managing proxy settings.
 
+![Zswitcher Screenshot](screenshots/screenshot.png)
+
 ## Features
 - Easy proxy configuration
 - Clean and intuitive user interface
