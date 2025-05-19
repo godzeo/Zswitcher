@@ -1,6 +1,6 @@
 # Privacy Policy for Zswitcher
 
-Last updated: March 19, 2024
+Last updated: March 19, 2025
 
 ## Overview
 Zswitcher is a Chrome extension that allows users to easily configure and switch between proxy servers. This privacy policy explains how we handle your data.
@@ -31,9 +31,6 @@ All data is stored locally in your browser and is not transmitted to any externa
 
 ## Updates to This Policy
 We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.
-
-## Contact
-If you have any questions about this privacy policy, please contact us at [your-email@example.com].
 
 ## Compliance
 This extension complies with:
