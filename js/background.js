@@ -9,6 +9,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         port: request.port
       });
       
+      // Set green icon when proxy is enabled
+      chrome.action.setIcon({
+        path: {
+          128: "/images/icon128_green.png"
+        }
+      });
+      
       chrome.proxy.settings.set({
         value: {
           mode: "fixed_servers",
@@ -32,6 +39,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       });
     } else {
       console.log('Disabling proxy');
+      
+      // Set default icon when proxy is disabled
+      chrome.action.setIcon({
+        path: {
+          128: "/images/icon128.png"
+        }
+      });
     
       chrome.proxy.settings.set({
         value: { mode: "direct" },
@@ -50,13 +64,31 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   }
 });
 
+
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+  if (namespace === 'sync') {
+    if (changes.enabled) {
+      chrome.action.setIcon({
+        path: {
+          128: changes.enabled.newValue ? "/images/icon128_green.png" : "/images/icon128.png"
+        }
+      });
+    }
+  }
+});
+
 // 初始化时检查代理状态
 chrome.storage.sync.get(['enabled', 'proxyHost', 'proxyPort'], function(result) {
   console.log('Initial proxy settings:', result);
   
+  chrome.action.setIcon({
+    path: {
+      128: result.enabled ? "/images/icon128_green.png" : "/images/icon128.png"
+    }
+  });
+  
   if (result.enabled && result.proxyHost && result.proxyPort) {
     console.log('Setting initial proxy configuration');
-    // 初始化代理配置
     chrome.proxy.settings.set({
       value: {
         mode: "fixed_servers",
